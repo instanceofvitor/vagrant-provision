@@ -14,6 +14,8 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "basedev"
 
+  config.ssh.forward_agent = true
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -40,6 +42,7 @@ Vagrant.configure(2) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder "./", "/var/www", create: true, group: "www-data", owner: "www-data"
+  # config.vm.synced_folder ".", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
